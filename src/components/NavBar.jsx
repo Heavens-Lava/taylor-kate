@@ -3,7 +3,8 @@ import React from "react";
 const NavBar = () => {
   return (
     <div>
-      <h1>Taylor's Kate's Personal Website</h1>
+      <h1>Taylor Kate Personal Website</h1>
+      <h3>I Love you babe! </h3>
       <nav>
         <ul>
           <li>
