@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/taylor-kate/static/css/main.f855e6bc.css",
-    "main.js": "/taylor-kate/static/js/main.5146e9d1.js",
+    "main.css": "/taylor-kate/static/css/main.ae50d527.css",
+    "main.js": "/taylor-kate/static/js/main.55baf0b0.js",
     "index.html": "/taylor-kate/index.html",
-    "main.f855e6bc.css.map": "/taylor-kate/static/css/main.f855e6bc.css.map",
-    "main.5146e9d1.js.map": "/taylor-kate/static/js/main.5146e9d1.js.map"
+    "main.ae50d527.css.map": "/taylor-kate/static/css/main.ae50d527.css.map",
+    "main.55baf0b0.js.map": "/taylor-kate/static/js/main.55baf0b0.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.5146e9d1.js"
+    "static/css/main.ae50d527.css",
+    "static/js/main.55baf0b0.js"
   ]
 }
