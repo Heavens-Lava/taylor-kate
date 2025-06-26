@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@plugin "daisyui";
+@plugin 'tailwind-scrollbar';
+@plugin 'tailwindcss';
+
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:wght@100;200;300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"rel="stylesheet");
