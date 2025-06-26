@@ -23,24 +23,24 @@ const Navbar = () => {
     await signOut(auth);
     navigate("/login");
   };
-
-  const links = [
-    { id: 1, link: "HOME" },
-    { id: 2, link: "LASHES" },
-    { id: 3, link: "NAILS" },
-    { id: 4, link: "BOOK APPOINTMENT" },
-    ...(user
-      ? [
-          { id: 5, link: "MY ACCOUNT" },
-          { id: 6, link: "LOGOUT", onClick: handleLogout },
-        ]
-      : []),
-    { id: 7, link: "SIGN UP" },
-    { id: 8, link: "LOGIN" },
-  ];
+const links = [
+  { id: 1, link: "HOME" },
+  { id: 2, link: "LASHES" },
+  { id: 3, link: "NAILS" },
+  { id: 4, link: "BOOK APPOINTMENT" },
+  ...(user
+    ? [
+        { id: 5, link: "MY ACCOUNT" },
+        { id: 6, link: "LOGOUT", onClick: handleLogout },
+      ]
+    : [
+        { id: 7, link: "SIGN UP" },
+        { id: 8, link: "LOGIN" },
+      ]),
+];
 
   return (
-    <div className="navBarParent fixed top-0 left-0 flex justify-between items-center w-full h-20 px-4 text-white dark:bg-red-600 bg-pink-600 z-50 dark:opacity-80">
+    <div className="navBarParent flex justify-between items-center w-full h-20 px-4 text-white dark:bg-red-600 bg-pink-600 z-50 dark:opacity-80">
       <div className="myNameText text-2xl sm:text-5xl ml-2 font-[AlexBrush] font-AlexBrush">
         Taylor Kates
       </div>
@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Hamburger Icon */}
       <div
-        className="cursor-pointer pr-4 z-50 text-pink-700 md:hidden"
+        className="cursor-pointer pr-4 z-10 text-pink-700 md:hidden"
         onClick={() => setNav(!nav)}
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -78,21 +78,15 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-pink-100 text-pink-800 transform transition-transform duration-500 ease-in-out z-40 ${
+        className={`md:hidden fixed top-20 left-0 w-full h-screen bg-pink-100 text-pink-800 transform transition-transform duration-500 ease-in-out z-40 ${
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="w-full h-20 flex items-center justify-between px-4 bg-pink-600 text-white fixed top-0 left-0 z-50">
-          <div className="text-2xl font-[AlexBrush]">Taylor Kates</div>
-          <div className="cursor-pointer text-white" onClick={() => setNav(false)}>
-            <FaTimes size={30} />
-          </div>
-        </div>
-        <ul className="flex flex-col justify-evenly items-center h-[calc(100vh-5rem)] pt-20 px-4 overflow-hidden">
+        <ul className="flex flex-col justify-center items-center h-full space-y-6 px-4 overflow-y-auto">
           {links.map(({ id, link, onClick }) => (
             <li
               key={id}
-              className={`w-full text-center py-2 text-xl border-b border-pink-200 ${
+              className={`w-full text-center py-4 text-3xl border-b border-pink-200 ${
                 active === link ? "text-pink-600 underline underline-offset-4" : "hover:text-pink-600"
               }`}
             >
