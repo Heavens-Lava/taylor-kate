@@ -54,7 +54,7 @@ const Home = () => {
         <p className="text-xl text-pink-700 font-semibold font-[AlexBrush]">
           Explore beautiful nail designs and styles
         </p>
-        <Link to="/book">
+        <Link to="/BOOK-APPOINTMENT">
           <button className="mt-4 px-6 py-2 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">
             Book Now
           </button>
