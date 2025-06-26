@@ -2,6 +2,8 @@
 
 import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+
 import { motion } from "framer-motion";
 
 
@@ -12,7 +14,7 @@ import nails3 from "../assets/images/frenchtips.jpg";
 
 const Home = () => {
   return (
-    <div className="bg-gradient-to-r from-pink-200 to-purple-200 h-[200vh] relative scrollbar scrollbar-thumb-rose-500">
+    <div className="bg-gradient-to-r from-pink-200 to-purple-200 h-[236vh] relative scrollbar scrollbar-thumb-rose-500">
       {/* display imported components to build homepage */}
       {/* display navbar */}
  
@@ -57,6 +59,13 @@ const Home = () => {
               Thank you! <br />I got them done at Taylor Kates!
             </div>
           </div>
+          <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-success">
+              Wow! I love them!
+            </div>
+          </div>
+          <div className="p-6"> <Footer/></div>
+       
         </div>
       </div>
     </div>

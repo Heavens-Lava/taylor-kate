@@ -12,6 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 const Button = ({ children, className = "", ...props }) => (
   <button
@@ -39,9 +40,9 @@ function Book() {
 
   return (
     <div>   <Navbar />
-    <div className="p-6 min-h-screen bg-pink-200">
+    <div className="p-6 min-h-screen bg-pink-200 ">
    
-      <div className="max-w-xl mx-auto bg-pink-50 shadow-lg rounded-xl p-6 mt-8">
+      <div className="max-w-xl mx-auto bg-pink-50 shadow-lg rounded-xl p-6 mt-8 ">
         <h2 className="text-3xl font-bold mb-4 text-pink-700 text-center">Book an Appointment</h2>
         {success && (
           <div className="alert alert-success text-green-800 font-medium bg-green-100 mb-4">
@@ -86,7 +87,9 @@ function Book() {
           <Button type="submit" className="w-full">Confirm Appointment</Button>
         </form>
       </div>
+            <Footer />
     </div>
+
     </div>
   );
 }

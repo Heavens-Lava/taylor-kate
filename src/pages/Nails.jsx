@@ -13,7 +13,7 @@ import nails4 from "../assets/images/nails4.jpg";
 import galaxynails from "../assets/images/galaxynails.jpg";
 
 
-
+import Footer from "../components/Footer";
 
 const Button = ({ children, className = "", ...props }) => (
   <button
@@ -114,6 +114,7 @@ function Nails() {
           </motion.div>
         ))}
       </div>
+      <Footer/>
     </div>
     
   );

@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase"; // make sure this path is correct
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 
 const SignUp = () => {
@@ -40,7 +41,7 @@ const SignUp = () => {
   return (
             <>
       <Navbar /> 
-    <div className="flex justify-center items-center h-screen bg-pink-50 px-4">
+    <div className="flex flex-col justify-center items-center h-[136vh] bg-pink-50 px-4 pt-20">
       <form
         onSubmit={handleSignUp}
         className="bg-white shadow-lg rounded-xl px-8 pt-6 pb-8 mb-4 w-full max-w-md"
@@ -86,7 +87,9 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+          <Footer/>
     </div>
+
     </>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import Navbar from "../components/NavBar";
+import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -30,7 +31,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className={`p-6 bg-pink-50 min-h-screen flex items-center justify-center ${loading ? "cursor-wait" : ""}`}>
+      <div className={`p-6 bg-pink-50 min-h-screen flex flex-col items-center justify-center ${loading ? "cursor-wait" : ""}`}>
         <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md">
           <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">Log In</h2>
           <form onSubmit={handleLogin} className="space-y-4">
@@ -65,7 +66,9 @@ const Login = () => {
             </button>
           </form>
         </div>
+          <Footer />
       </div>
+    
     </>
   );
 };

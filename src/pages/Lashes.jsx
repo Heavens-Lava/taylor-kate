@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 
 //import images from lashes folder
@@ -51,6 +52,7 @@ function Lashes() {
   return (
     
     <div> <NavBar />
+    
     <div className="p-6  bg-pink-50 min-h-screen font-sans">
       
       {/* title section */}
@@ -91,6 +93,7 @@ function Lashes() {
           </motion.div>
         ))}
       </div>
+      <Footer/>
     </div>
     </div>
   );
