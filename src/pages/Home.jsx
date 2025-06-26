@@ -76,6 +76,7 @@ const Home = () => {
     { text: "Heyyy!\nBeautiful nails!", type: "chat-start", style: "chat-bubble-error" },
     { text: "Thank you! \nI got them done at Taylor Kates!", type: "chat-end", style: "chat-bubble-secondary" },
     { text: "Wow! I love them!", type: "chat-start", style: "chat-bubble-success" },
+    { text: "I know and I got them at such a great price!", type: "chat-end", style: "chat-bubble-secondary" },
   ].map((chat, i) => {
     // Move hook OUTSIDE of conditional or loop
     const ChatBubble = () => {
