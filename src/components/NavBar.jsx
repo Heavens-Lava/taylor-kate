@@ -16,6 +16,27 @@ import {
 import { auth } from "../firebase"; // make sure this path is correct
 import { onAuthStateChanged, signOut } from "firebase/auth";
 
+import { motion, AnimatePresence } from "framer-motion";
+
+const menuVariants = {
+  hidden: { x: "-100%" },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.1,
+      duration: 0.5,
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const linkVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0 },
+};
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [active, setActive] = useState("HOME");
@@ -95,7 +116,7 @@ const links = [
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <ul className="flex flex-col justify-center items-center h-full space-y-6 px-4 overflow-y-auto">
+        <ul className="flex flex-col items-center space-y-6 px-4 py-10 overflow-y-auto max-h-[calc(100vh-5rem)]">
   {links.map(({ id, link, onClick, icon }) => (
     <li
       key={id}
