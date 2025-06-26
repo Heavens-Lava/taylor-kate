@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/taylor-kate/static/css/main.d19013ec.css",
-    "main.js": "/taylor-kate/static/js/main.1f1ff66e.js",
+    "main.css": "/taylor-kate/static/css/main.c971b29b.css",
+    "main.js": "/taylor-kate/static/js/main.f389f969.js",
     "static/media/nails4.jpg": "/taylor-kate/static/media/nails4.9ed8a17d70efc50d9786.jpg",
     "static/media/galaxynails.jpg": "/taylor-kate/static/media/galaxynails.a8fef54ea61f68611437.jpg",
     "static/media/nails5.jpg": "/taylor-kate/static/media/nails5.8e9649aed961263de43d.jpg",
@@ -10,11 +10,11 @@
     "static/media/bolddrama2.jpg": "/taylor-kate/static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
     "static/media/frenchtips.jpg": "/taylor-kate/static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
     "index.html": "/taylor-kate/index.html",
-    "main.d19013ec.css.map": "/taylor-kate/static/css/main.d19013ec.css.map",
-    "main.1f1ff66e.js.map": "/taylor-kate/static/js/main.1f1ff66e.js.map"
+    "main.c971b29b.css.map": "/taylor-kate/static/css/main.c971b29b.css.map",
+    "main.f389f969.js.map": "/taylor-kate/static/js/main.f389f969.js.map"
   },
   "entrypoints": [
-    "static/css/main.d19013ec.css",
-    "static/js/main.1f1ff66e.js"
+    "static/css/main.c971b29b.css",
+    "static/js/main.f389f969.js"
   ]
 }
