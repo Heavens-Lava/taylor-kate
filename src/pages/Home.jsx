@@ -4,19 +4,29 @@ import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import { useInView } from "react-intersection-observer";
+
+
 // images
 import nails from "../assets/images/nails5.jpg";
 import nails2 from "../assets/images/charming.jpg";
 import nails3 from "../assets/images/frenchtips.jpg";
 
-const chatVariants = {
+// const chatVariants = {
+//   hidden: { opacity: 0, y: 20 },
+//   visible: (i) => ({
+//     opacity: 1,
+//     y: 0,
+//     transition: { delay: i * 0.4, duration: 0.5 },
+//   }),
+// };
+
+const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.4, duration: 0.5 },
-  }),
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
+
+
 
 const Home = () => {
   return (
@@ -60,25 +70,36 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Animated Chat Bubbles */}
-      <div className="text-xl mt-10 flex flex-col items-end px-4 md:px-20">
-        {[
-          { text: "Heyyy!\nBeautiful nails!", type: "chat-start", style: "chat-bubble-error" },
-          { text: "Thank you! \nI got them done at Taylor Kates!", type: "chat-end", style: "chat-bubble-secondary" },
-          { text: "Wow! I love them!", type: "chat-start", style: "chat-bubble-success" },
-        ].map((chat, i) => (
-          <motion.div
-            key={i}
-            custom={i}
-            initial="hidden"
-            animate="visible"
-            variants={chatVariants}
-            className={`chat ${chat.type}`}
-          >
-            <div className={`chat-bubble ${chat.style} whitespace-pre-line`}>{chat.text}</div>
-          </motion.div>
-        ))}
-      </div>
+{/* Animated Chat Bubbles */}
+<div className="text-xl mt-10 flex flex-col items-end px-4 md:px-20 space-y-6">
+  {[
+    { text: "Heyyy!\nBeautiful nails!", type: "chat-start", style: "chat-bubble-error" },
+    { text: "Thank you! \nI got them done at Taylor Kates!", type: "chat-end", style: "chat-bubble-secondary" },
+    { text: "Wow! I love them!", type: "chat-start", style: "chat-bubble-success" },
+  ].map((chat, i) => {
+    // Move hook OUTSIDE of conditional or loop
+    const ChatBubble = () => {
+      const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+      return (
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: i * 0.2 }}
+          className={`chat ${chat.type}`}
+        >
+          <div className={`chat-bubble ${chat.style} whitespace-pre-line`}>
+            {chat.text}
+          </div>
+        </motion.div>
+      );
+    };
+
+    return <ChatBubble key={i} />;
+  })}
+</div>
+
 
       {/* Footer */}
       <Footer />

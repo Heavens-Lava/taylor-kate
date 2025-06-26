@@ -17,7 +17,7 @@ const Footer = () => {
           <h2 className="text-xl font-semibold mb-2">Menu</h2>
           <ul className="text-sm space-y-1">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/FAQ">FAQ</Link></li>
             <li><Link to="/Search">Search</Link></li>
             <li><Link to="/book">Book Now</Link></li>
           </ul>
