@@ -13,6 +13,8 @@ import nails4 from "../assets/images/nails4.jpg";
 import galaxynails from "../assets/images/galaxynails.jpg";
 
 
+
+
 const Button = ({ children, className = "", ...props }) => (
   <button
     className={`px-4 py-2 rounded-xl font-semibold transition bg-pink-600 hover:bg-pink-700 text-white ${className}`}
@@ -72,6 +74,8 @@ const nails = [
 
 function Nails() {
   return (
+
+
     <div className="p-6 bg-rose-50 min-h-screen font-sans">
       <Navbar />
       <motion.h1
@@ -111,6 +115,7 @@ function Nails() {
         ))}
       </div>
     </div>
+    
   );
 }
 

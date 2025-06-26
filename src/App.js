@@ -13,6 +13,7 @@ import BookAppointment from "./pages/BookAppointment";
 import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+        import MyAccount from "./pages/MyAccount";
 
 // ---------------------------------------- the component for the popup window ---------------------------------------- 
 const Popup = ({ onClose }) => {
@@ -72,9 +73,13 @@ function App() {
         <Route path="/HOME" element={<Home />} />
         <Route path="/LASHES" element={<Lashes />} />
         <Route path="/NAILS" element={<Nails />} />
-        <Route path="/BOOK APPOINTMENT" element={<BookAppointment />} />
-        <Route path="/SIGN UP" element={<SignUp />} />
+        <Route path="/BOOK-APPOINTMENT" element={<BookAppointment />} />
+        <Route path="/SIGN-UP" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        
+
+
+<Route path="/my-account" element={<MyAccount />} />
       </Routes>
     </Router>
   );

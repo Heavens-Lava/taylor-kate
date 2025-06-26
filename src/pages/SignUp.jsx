@@ -1,93 +1,93 @@
 // SignUp.jsx
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore"; // these are coming from firebase library
-import { auth, db } from "../firebase"; //  These variables are coming from within project src/firebase.js
-import "react-datepicker/dist/react-datepicker.css";
-import NavBar from "../components/NavBar";
-
-
-// auth and db are retrieved from firebase.js, which initializes Firebase services
-// createUserWithEmailAndPassword is used to create a new user with email and password
-// addDoc is used to add a new document to a Firestore collection
-// collection is used to reference a Firestore collection
-// "react-datepicker/dist/react-datepicker.css" is imported to style the date picker component
-
-// This component allows users to sign up by providing their name, email, and password.
-// It handles form submission, creates a new user in Firebase Authentication, and stores user details in Firestore.
+import { auth } from "../firebase"; // make sure this path is correct
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/NavBar";
 
 
 const SignUp = () => {
-    // useState hooks to manage form data and error state
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(null);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
+    setErrorMsg("");
+
+    if (!email || !password) {
+      setErrorMsg("Please enter both email and password.");
+      return;
+    }
+
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
-      await addDoc(collection(db, "users"), {
-        uid: userCredential.user.uid,
-        name: formData.name,
-        email: formData.email
-      });
-      alert(`Welcome, ${formData.name}! Your account has been created.`);
-      setFormData({ name: "", email: "", password: "" });
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/"); // redirect to homepage
     } catch (error) {
-      console.error("Error signing up:", error);
-      setError(error.message);
+      if (error.code === "auth/email-already-in-use") {
+        setErrorMsg("This email is already in use.");
+      } else if (error.code === "auth/invalid-email") {
+        setErrorMsg("Invalid email address.");
+      } else if (error.code === "auth/weak-password") {
+        setErrorMsg("Password should be at least 6 characters.");
+      } else {
+        setErrorMsg("Something went wrong. Please try again.");
+      }
     }
   };
 
   return (
-    
-    <div>
-    <NavBar />
+            <>
+      <Navbar /> 
+    <div className="flex justify-center items-center h-screen bg-pink-50 px-4">
+      <form
+        onSubmit={handleSignUp}
+        className="bg-white shadow-lg rounded-xl px-8 pt-6 pb-8 mb-4 w-full max-w-md"
+      >
+        <h2 className="text-2xl font-semibold text-pink-600 mb-4 text-center">
+          Create an Account
+        </h2>
 
-    
-    <div className="p-6 bg-pink-50 min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md">
-        <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">Create Your Account</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Full Name"
-            className="input input-bordered w-full"
-            required
-          />
+        {errorMsg && (
+          <p className="text-red-500 text-sm mb-4 text-center">{errorMsg}</p>
+        )}
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Email
+          </label>
           <input
             type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            className="input input-bordered w-full"
-            required
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
           />
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 text-sm font-medium mb-2">
+            Password
+          </label>
           <input
             type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-            className="input input-bordered w-full"
-            required
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
           />
-          <button type="submit" className="btn btn-primary w-full bg-pink-500 hover:bg-pink-600 border-0 text-white">
-            Sign Up
-          </button>
-        </form>
-      </div>
+        </div>
+
+        <button
+          type="submit"
+          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded w-full transition-colors"
+        >
+          Sign Up
+        </button>
+      </form>
     </div>
-    </div>
+    </>
   );
 };
 

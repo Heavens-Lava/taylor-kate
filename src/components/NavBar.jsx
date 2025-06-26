@@ -1,93 +1,120 @@
-// This component sets up the Navigation for the website.
-// It includes a responsive navigation bar with links to different sections of the site.
-
-import React, { useState, useContext } from "react";
-// import icons
+// Navbar.jsx
+import React, { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { auth } from "../firebase"; // make sure this path is correct
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
-const NavBar = () => {
-  //NavBar variables/constants
-
-  // create nav useState, 'nav' initial state set to false
+const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [active, setActive] = useState("HOME");
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
 
-  // create json array 'links', use to display each link
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate("/login");
+  };
+
   const links = [
-    {id: 1,link: "HOME",},
-    {id: 2,link: "LASHES",},
-    {id: 3,link: "NAILS",},
-    {id: 4,link: "BOOK APPOINTMENT",},
-    {id: 5,link: "SIGN UP",},
-    {id: 5,link: "LOGIN",},
+    { id: 1, link: "HOME" },
+    { id: 2, link: "LASHES" },
+    { id: 3, link: "NAILS" },
+    { id: 4, link: "BOOK APPOINTMENT" },
+    ...(user
+      ? [
+          { id: 5, link: "MY ACCOUNT" },
+          { id: 6, link: "LOGOUT", onClick: handleLogout },
+        ]
+      : []),
+    { id: 7, link: "SIGN UP" },
+    { id: 8, link: "LOGIN" },
   ];
 
-  // NavBar Display
   return (
-    // main container for NavBar
-    <div className="navBarParent flex justify-between items-center w-full h-20 px-4 text-white dark:bg-red-600 bg-pink-600 z-50 dark:opacity-80">
-      {/* Display Taylor Kate on top right of navigation */}
-      <div className="myNameText text-2xl sm:text-5xl ml-2 font-[AlexBrush]">
+    <div className="navBarParent fixed top-0 left-0 flex justify-between items-center w-full h-20 px-4 text-white dark:bg-red-600 bg-pink-600 z-50 dark:opacity-80">
+      <div className="myNameText text-2xl sm:text-5xl ml-2 font-[AlexBrush] font-AlexBrush">
         Taylor Kates
       </div>
 
-      {/* ---------------------------------------- Code For Desktop View ---------------------------------------- */}
-      {/* #navBarLinks will be hidden by default until it reaches at least medium size screen(mobile is hidden) */}
+      {/* Desktop Menu */}
       <ul className="navBarLinks hidden md:flex">
-        {/* create a loop for each item in the 'links' array, then declare item.value(such as link.id) */}
-        {/* this  '{links.map((link) => {}' can also work. 'link' can be named anything, then to get values, type link.id, link.link */}
-        {links.map(({ id, link }) => (
+        {links.map(({ id, link, onClick }) => (
           <li
-            //   for each key, get the 'link' name
             key={id}
-            className="firstLink px-4 cursor-pointer capitalize font-medium text-stone-100 hover:scale-105 duration-200"
+            className={`firstLink px-4 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${
+              active === link ? "text-white border-b-2 border-white" : "text-stone-100"
+            }`}
           >
-            {/* display link name */}
-            {/* Allows link to smooth to part of page with link, imported from react-scroll */}
-            <Link to={"/" + link} smooth duration={500}>
-              {link}
-            </Link>
+            {onClick ? (
+              <button onClick={onClick}>{link}</button>
+            ) : (
+              <RouterLink
+                to={link === "HOME" ? "/" : `/${link.toLowerCase().replace(/ /g, "-")}`}
+                onClick={() => setActive(link)}
+              >
+                {link}
+              </RouterLink>
+            )}
           </li>
         ))}
-        {/* end loop */}
       </ul>
 
-      {/* --------------------------------------- for mobile view ---------------------------------------- */}
-      {/* #navBarMobileMenuIcon properties for both clicked and unclicked (top right icon in navBar) */}
-      {/* is hidden once it reaches medium screen */}
-      {/* has a onClick event 'setNav' that sets nav(false) to true or from true to false */}
       {/* Mobile Hamburger Icon */}
       <div
-        className="cursor-pointer pr-4 z-10 text-pink-700 md:hidden"
+        className="cursor-pointer pr-4 z-50 text-pink-700 md:hidden"
         onClick={() => setNav(!nav)}
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
       {/* Mobile Menu */}
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-pink-100 text-pink-800">
-          {links.map(({ id, link }) => (
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-pink-100 text-pink-800 transform transition-transform duration-500 ease-in-out z-40 ${
+          nav ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="w-full h-20 flex items-center justify-between px-4 bg-pink-600 text-white fixed top-0 left-0 z-50">
+          <div className="text-2xl font-[AlexBrush]">Taylor Kates</div>
+          <div className="cursor-pointer text-white" onClick={() => setNav(false)}>
+            <FaTimes size={30} />
+          </div>
+        </div>
+        <ul className="flex flex-col justify-evenly items-center h-[calc(100vh-5rem)] pt-20 px-4 overflow-hidden">
+          {links.map(({ id, link, onClick }) => (
             <li
               key={id}
-              className="px-4 cursor-pointer capitalize py-6 text-4xl hover:text-pink-600"
+              className={`w-full text-center py-2 text-xl border-b border-pink-200 ${
+                active === link ? "text-pink-600 underline underline-offset-4" : "hover:text-pink-600"
+              }`}
             >
-              <Link
-                onClick={() => setNav(false)}
-                to={"/" + link}
-                smooth
-                duration={500}
-              >
-                {link}
-              </Link>
+              {onClick ? (
+                <button onClick={() => { setNav(false); onClick(); }}>{link}</button>
+              ) : (
+                <RouterLink
+                  onClick={() => {
+                    setNav(false);
+                    setActive(link);
+                  }}
+                  to={link === "HOME" ? "/" : `/${link.toLowerCase().replace(/ /g, "-")}`}
+                >
+                  {link}
+                </RouterLink>
+              )}
             </li>
           ))}
         </ul>
-      )}
+      </div>
     </div>
   );
 };
 
-export default NavBar;
+export default Navbar;
