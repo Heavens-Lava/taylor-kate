@@ -14,6 +14,7 @@ import Signup from "./pages/SignUp";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
         import MyAccount from "./pages/MyAccount";
+import MyAppointments from "./pages/MyAppointments";
 
 // ---------------------------------------- the component for the popup window ---------------------------------------- 
 const Popup = ({ onClose }) => {
@@ -76,6 +77,7 @@ function App() {
         <Route path="/BOOK-APPOINTMENT" element={<BookAppointment />} />
         <Route path="/SIGN-UP" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/MY-APPOINTMENTS" element={<MyAppointments />} />
         
 
 

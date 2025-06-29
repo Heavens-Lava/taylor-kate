@@ -4,44 +4,39 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
 
 const MyAccount = () => {
   const [user, setUser] = useState(null);
+  const [appointments, setAppointments] = useState([]);
   const navigate = useNavigate();
+  const db = getFirestore();
 
   // 🔒 Authenticate user
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+
+        // 🔎 Fetch real appointment data
+        try {
+          const q = query(collection(db, "appointments"), where("userId", "==", currentUser.uid));
+          const querySnapshot = await getDocs(q);
+          const fetchedAppointments = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          setAppointments(fetchedAppointments);
+        } catch (error) {
+          console.error("Error fetching appointments:", error);
+        }
       } else {
         navigate("/login"); // Redirect if not logged in
       }
     });
     return () => unsubscribe();
-  }, [navigate]);
+  }, [navigate, db]);
 
   if (!user) {
     return <div className="text-center mt-10">Loading your account...</div>;
   }
-
-  // 📦 Temporary mock booking data
-  const bookings = [
-    {
-      id: 1,
-      service: "Full Set - Pink & White",
-      date: "July 5, 2025",
-      time: "2:30 PM",
-      status: "Confirmed",
-    },
-    {
-      id: 2,
-      service: "Lash Fill",
-      date: "July 15, 2025",
-      time: "11:00 AM",
-      status: "Pending",
-    },
-  ];
 
   return (
     <div className="bg-white min-h-screen">
@@ -53,19 +48,19 @@ const MyAccount = () => {
 
         <div className="mt-10 bg-white p-6 rounded-xl shadow text-gray-800 text-left">
           <h3 className="text-2xl font-bold mb-4 text-center">My Appointments</h3>
-          {bookings.length === 0 ? (
+          {appointments.length === 0 ? (
             <p className="text-center text-gray-500">You have no upcoming appointments.</p>
           ) : (
             <ul className="space-y-4">
-              {bookings.map((booking) => (
+              {appointments.map((appointment) => (
                 <li
-                  key={booking.id}
+                  key={appointment.id}
                   className="border border-gray-200 p-4 rounded-lg bg-gray-50"
                 >
-                  <p><strong>Service:</strong> {booking.service}</p>
-                  <p><strong>Date:</strong> {booking.date}</p>
-                  <p><strong>Time:</strong> {booking.time}</p>
-                  <p><strong>Status:</strong> <span className={`font-semibold ${booking.status === "Confirmed" ? "text-green-600" : "text-yellow-600"}`}>{booking.status}</span></p>
+                  <p><strong>Service:</strong> {appointment.service}</p>
+                  <p><strong>Date:</strong> {appointment.date}</p>
+                  <p><strong>Time:</strong> {appointment.time}</p>
+                  <p><strong>Status:</strong> <span className={`font-semibold ${appointment.status === "Confirmed" ? "text-green-600" : "text-yellow-600"}`}>{appointment.status}</span></p>
                 </li>
               ))}
             </ul>
