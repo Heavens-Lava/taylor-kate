@@ -1,18 +1,13 @@
 import React from "react";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 
 // import images
 import nails4 from "../assets/images/nails4.jpg";
 import galaxynails from "../assets/images/galaxynails.jpg";
 
-
+// Import your NavBar component
+import NavBar from "../components/NavBar"; // Update this path if necessary
 import Footer from "../components/Footer";
 
 const Button = ({ children, className = "", ...props }) => (
@@ -33,22 +28,6 @@ const Card = ({ children }) => (
 const CardContent = ({ children, className = "" }) => (
   <div className={`p-4 ${className}`}>{children}</div>
 );
-
-const Navbar = () => (
-  <nav className="bg-white shadow-md p-4 flex justify-center space-x-6">
-    <Link to="/" className="text-pink-600 hover:underline font-medium">
-      Home
-    </Link>
-    <Link to="/lashes" className="text-pink-600 hover:underline font-medium">
-      Lashes
-    </Link>
-    <Link to="/nails" className="text-pink-600 hover:underline font-medium">
-      Nails
-    </Link>
-  </nav>
-);
-
-
 
 const nails = [
   {
@@ -71,13 +50,11 @@ const nails = [
   },
 ];
 
-
 function Nails() {
   return (
-
-
+    <>
+    <NavBar />
     <div className="p-6 bg-rose-50 min-h-screen font-sans">
-      <Navbar />
       <motion.h1
         className="text-4xl font-bold text-center mb-8 text-pink-800"
         initial={{ opacity: 0, y: -20 }}
@@ -114,11 +91,12 @@ function Nails() {
           </motion.div>
         ))}
       </div>
-      <Footer/>
+
+      {/* Footer */}
+      <Footer />
     </div>
-    
+    </>
   );
 }
-
 
 export default Nails;
