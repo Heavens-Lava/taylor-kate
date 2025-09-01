@@ -1,23 +1,47 @@
 const { onDocumentCreated } = require("firebase-functions/v2/firestore");
 const { initializeApp } = require("firebase-admin/app");
-const { defineSecret } = require("firebase-functions/params");
 const twilio = require("twilio");
+
+// Load .env locally (ignored in Firebase deployment)
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 initializeApp();
 
-const accountSid = defineSecret("ACd4d8bfd2a30d6ef63e6b7f110b14ed11");
-const authToken = defineSecret("d3b405b3eaa86841f2d3054dfee38318");
-const twilioPhone = defineSecret("+18333864836");
+// Use Firebase secrets if available, otherwise fall back to .env
+const accountSid =
+  process.env.TWILIO_ACCOUNT_SID ||
+  (() => {
+    throw new Error("TWILIO_ACCOUNT_SID not set");
+  })();
+
+const authToken =
+  process.env.TWILIO_AUTH_TOKEN ||
+  (() => {
+    throw new Error("TWILIO_AUTH_TOKEN not set");
+  })();
+
+const twilioPhone =
+  process.env.TWILIO_PHONE ||
+  (() => {
+    throw new Error("TWILIO_PHONE not set");
+  })();
 
 exports.notifyNewAppointment = onDocumentCreated(
   {
     document: "appointments/{appointmentId}",
-    secrets: [accountSid, authToken, twilioPhone],
+    // If you use Firebase secrets, uncomment these:
+    // secrets: [
+    //   defineSecret("TWILIO_ACCOUNT_SID"),
+    //   defineSecret("TWILIO_AUTH_TOKEN"),
+    //   defineSecret("TWILIO_PHONE"),
+    // ],
   },
   async (event) => {
     const data = event.data.data();
 
-    const client = twilio(accountSid.value(), authToken.value());
+    const client = twilio(accountSid, authToken);
 
     const messageBody = `📅 New appointment:
 Service: ${data.service}
@@ -29,7 +53,7 @@ Phone: ${data.phone || "N/A"}`;
     try {
       await client.messages.create({
         body: messageBody,
-        from: twilioPhone.value(),
+        from: twilioPhone,
         to: "+16026194553", // Your verified number
       });
       console.log("✅ SMS sent!");
