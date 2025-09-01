@@ -38,9 +38,9 @@ const Navbar = () => {
   };
 
   const baseLinks = [
-    { id: 1, link: "HOME", icon: <FaHome /> },
-    { id: 2, link: "LASHES", icon: <FaEye /> },
-    { id: 3, link: "NAILS", icon: <FaHandSparkles /> },
+    { id: 1, link: "Home", icon: <FaHome /> },
+    { id: 2, link: "Lashes", icon: <FaEye /> },
+    { id: 3, link: "Nails", icon: <FaHandSparkles /> },
   ];
 
   const appointmentLinks = [
@@ -59,12 +59,12 @@ const Navbar = () => {
         },
       ]
     : [
-        { id: 7, link: "SIGN UP", icon: <FaUserPlus /> },
-        { id: 8, link: "LOGIN", icon: <FaSignInAlt /> },
+        { id: 7, link: "Sign Up", icon: <FaUserPlus /> },
+        { id: 8, link: "Login", icon: <FaSignInAlt /> },
       ];
 
   return (
-    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white bg-pink-600 opacity-70 shadow-md z-50">
+    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white  bg-gradient-to-r from-pink-500 via via-rose-600 to-pink-600 opacity-70 shadow-md z-50">
       {/* Left: Logo + Main Links */}
       <div className="flex items-center space-x-8">
         <div className="flex items-center space-x-2">
