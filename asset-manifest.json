@@ -1,20 +1,23 @@
 {
   "files": {
-    "main.css": "/taylor-kate/static/css/main.0e458bd9.css",
-    "main.js": "/taylor-kate/static/js/main.ef359201.js",
+    "main.css": "/taylor-kate/static/css/main.d254c4b2.css",
+    "main.js": "/taylor-kate/static/js/main.3e621e54.js",
     "static/media/nails4.jpg": "/taylor-kate/static/media/nails4.9ed8a17d70efc50d9786.jpg",
     "static/media/galaxynails.jpg": "/taylor-kate/static/media/galaxynails.a8fef54ea61f68611437.jpg",
+    "static/media/OdenaGlamour.otf": "/taylor-kate/static/media/OdenaGlamour.60981d9f40a33765f621.otf",
     "static/media/nails5.jpg": "/taylor-kate/static/media/nails5.8e9649aed961263de43d.jpg",
+    "static/media/Astrid.otf": "/taylor-kate/static/media/Astrid.a2f0f6ad610a55c6407d.otf",
+    "static/media/bolddrama.jpg": "/taylor-kate/static/media/bolddrama.d234adf23446b86d8345.jpg",
     "static/media/glamluxe.jpg": "/taylor-kate/static/media/glamluxe.bd4cf1f5aa39599ed40f.jpg",
     "static/media/naturalwhisper.jpg": "/taylor-kate/static/media/naturalwhisper.c622d21de80250621e85.jpg",
     "static/media/bolddrama2.jpg": "/taylor-kate/static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
     "static/media/frenchtips.jpg": "/taylor-kate/static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
     "index.html": "/taylor-kate/index.html",
-    "main.0e458bd9.css.map": "/taylor-kate/static/css/main.0e458bd9.css.map",
-    "main.ef359201.js.map": "/taylor-kate/static/js/main.ef359201.js.map"
+    "main.d254c4b2.css.map": "/taylor-kate/static/css/main.d254c4b2.css.map",
+    "main.3e621e54.js.map": "/taylor-kate/static/js/main.3e621e54.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e458bd9.css",
-    "static/js/main.ef359201.js"
+    "static/css/main.d254c4b2.css",
+    "static/js/main.3e621e54.js"
   ]
 }
