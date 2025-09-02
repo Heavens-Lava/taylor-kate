@@ -46,7 +46,7 @@ const Home = () => {
       <div className="bg-gradient-to-r from-white to-pink-200 min-h-screen relative">
         {/* Title */}
         <motion.h1
-          className="text-5xl text-center pt-20 text-pink-800 font-myFont"
+          className="text-5xl text-center pt-20 text-pink-800 font-myFont mb-20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

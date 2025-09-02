@@ -3,7 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-console.log("Firebase API Key:", process.env.REACT_APP_FIREBASE_API_KEY);
+// Uncomment this line to see if firebase is reading the API. Make sure to recomment when deploying so users can not see this
+//console.log("Firebase API Key:", process.env.REACT_APP_FIREBASE_API_KEY);
 
 // ✅ First initialize the config
 const firebaseConfig = {
@@ -13,7 +14,7 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // ✅ THEN initialize the app
@@ -22,7 +23,3 @@ const app = initializeApp(firebaseConfig);
 // ✅ Now export these safely
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-
-
-
-

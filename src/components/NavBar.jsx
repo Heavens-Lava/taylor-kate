@@ -64,7 +64,7 @@ const Navbar = () => {
       ];
 
   return (
-    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white  bg-gradient-to-r from-pink-500 via via-rose-600 to-pink-600 opacity-70 shadow-md z-50">
+    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white  bg-gradient-to-r from-pink-500 via via-rose-600 to-pink-600  opacity-90  shadow-md z-50">
       {/* Left: Logo + Main Links */}
       <div className="flex items-center space-x-8">
         <div className="flex items-center space-x-2">

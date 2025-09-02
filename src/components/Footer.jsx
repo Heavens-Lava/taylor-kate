@@ -5,8 +5,8 @@ import { Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-10 px-6 md:px-20 mt-20">
-      <div className=" mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-white text-black py-10 px-6 md:px-20">
+      <div className=" mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mt-20">
         {/* Promo Section */}
         <div>
           <h2 className="text-xl font-semibold mb-2">Special Offer</h2>
