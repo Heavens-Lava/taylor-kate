@@ -150,7 +150,7 @@ function Lashes() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <NavBar />
 
       {/* Hero Section with Floating Elements */}
@@ -218,7 +218,7 @@ function Lashes() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-pink-600">50K+</div>
+                <div className="text-3xl font-bold text-pink-600">20+</div>
                 <div className="text-sm text-gray-600">Happy Customers</div>
               </div>
               <div className="text-center">
@@ -257,7 +257,7 @@ function Lashes() {
       </div>
 
       {/* Products Section */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 py-16 bg-pink-400">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedCategory}
@@ -409,7 +409,7 @@ function Lashes() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 ">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
             <div className="space-y-3">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto">

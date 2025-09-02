@@ -77,7 +77,7 @@ const Navbar = () => {
           {baseLinks.map(({ id, link, icon }) => (
             <li
               key={id}
-              className={`px-2 cursor-pointer flex items-center gap-1 capitalize font-medium ${
+              className={`px-2 cursor-pointer flex items-center gap-1 capitalize font-thin  ${
                 active === link
                   ? "text-white border-b-2 border-white"
                   : "text-gray-100 hover:text-white"
