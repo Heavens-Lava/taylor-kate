@@ -31,9 +31,15 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className={`p-6 bg-pink-50 min-h-screen flex flex-col items-center justify-center ${loading ? "cursor-wait" : ""}`}>
-        <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md">
-          <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">Log In</h2>
+      <div
+        className={`p-6 bg-pink-50 min-h-screen flex flex-col items-center justify-center h-[100vh] ${
+          loading ? "cursor-wait" : ""
+        }`}
+      >
+        <div className="max-w-md w-full bg-white p-8 rounded-xl shadow-md my-20">
+          <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center">
+            Log In
+          </h2>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="email"
@@ -66,9 +72,8 @@ const Login = () => {
             </button>
           </form>
         </div>
-          <Footer />
       </div>
-    
+      <Footer />
     </>
   );
 };
