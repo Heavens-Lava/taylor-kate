@@ -13,6 +13,7 @@ import {
   FaUserPlus,
   FaSignInAlt,
   FaClipboardList,
+  FaSpa,
 } from "react-icons/fa";
 import { Phone } from "lucide-react";
 import { auth } from "../firebase";
@@ -41,6 +42,7 @@ const Navbar = () => {
     { id: 1, link: "Home", icon: <FaHome /> },
     { id: 2, link: "Lashes", icon: <FaEye /> },
     { id: 3, link: "Nails", icon: <FaHandSparkles /> },
+    { id: 10, link: "Massages", icon: <FaSpa /> },
   ];
 
   const appointmentLinks = [
@@ -64,8 +66,9 @@ const Navbar = () => {
       ];
 
   return (
-    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white  bg-gradient-to-r from-pink-500 via via-rose-600 to-pink-600  opacity-90  shadow-md z-50">
+    <div className="navBarParent flex justify-between items-center w-full h-14 px-6 text-white  bg-gradient-to-r from-pink-500 via via-rose-600 to-pink-600  opacity-100  shadow-md z-50">
       {/* Left: Logo + Main Links */}
+
       <div className="flex items-center space-x-8">
         <div className="flex items-center space-x-2">
           <div className="text-xl sm:text-4xl font-[AlexBrush] font-AlexBrush">
