@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/taylor-kate/static/css/main.50ccdbac.css",
+    "main.css": "/taylor-kate/static/css/main.f07e3f65.css",
     "main.js": "/taylor-kate/static/js/main.c7b5b628.js",
     "static/media/galaxynails.jpg": "/taylor-kate/static/media/galaxynails.a8fef54ea61f68611437.jpg",
     "static/media/OdenaGlamour.otf": "/taylor-kate/static/media/OdenaGlamour.60981d9f40a33765f621.otf",
@@ -16,11 +16,11 @@
     "static/media/bolddrama2.jpg": "/taylor-kate/static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
     "static/media/frenchtips.jpg": "/taylor-kate/static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
     "index.html": "/taylor-kate/index.html",
-    "main.50ccdbac.css.map": "/taylor-kate/static/css/main.50ccdbac.css.map",
+    "main.f07e3f65.css.map": "/taylor-kate/static/css/main.f07e3f65.css.map",
     "main.c7b5b628.js.map": "/taylor-kate/static/js/main.c7b5b628.js.map"
   },
   "entrypoints": [
-    "static/css/main.50ccdbac.css",
+    "static/css/main.f07e3f65.css",
     "static/js/main.c7b5b628.js"
   ]
 }
