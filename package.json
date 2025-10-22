@@ -1,5 +1,5 @@
 {
-  "homepage": "https://heavens-lava.github.io/taylor-kate/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
