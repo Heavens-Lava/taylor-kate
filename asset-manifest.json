@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/taylor-kate/static/css/main.f07e3f65.css",
-    "main.js": "/taylor-kate/static/js/main.c7b5b628.js",
-    "static/media/galaxynails.jpg": "/taylor-kate/static/media/galaxynails.a8fef54ea61f68611437.jpg",
-    "static/media/OdenaGlamour.otf": "/taylor-kate/static/media/OdenaGlamour.60981d9f40a33765f621.otf",
-    "static/media/nails5.jpg": "/taylor-kate/static/media/nails5.8e9649aed961263de43d.jpg",
-    "static/media/Astrid.otf": "/taylor-kate/static/media/Astrid.a2f0f6ad610a55c6407d.otf",
-    "static/media/hero-beauty-spa.jpg": "/taylor-kate/static/media/hero-beauty-spa.32027827004ff0bb27cc.jpg",
-    "static/media/nail-service.jpg": "/taylor-kate/static/media/nail-service.d85f9e42e1b989b98276.jpg",
-    "static/media/lash-service.jpg": "/taylor-kate/static/media/lash-service.8045c354c96e6290f9db.jpg",
-    "static/media/bolddrama.jpg": "/taylor-kate/static/media/bolddrama.d234adf23446b86d8345.jpg",
-    "static/media/glamluxe.jpg": "/taylor-kate/static/media/glamluxe.bd4cf1f5aa39599ed40f.jpg",
-    "static/media/massage-service.jpg": "/taylor-kate/static/media/massage-service.b90cb5d25ca797c0dcba.jpg",
-    "static/media/naturalwhisper.jpg": "/taylor-kate/static/media/naturalwhisper.c622d21de80250621e85.jpg",
-    "static/media/bolddrama2.jpg": "/taylor-kate/static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
-    "static/media/frenchtips.jpg": "/taylor-kate/static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
-    "index.html": "/taylor-kate/index.html",
-    "main.f07e3f65.css.map": "/taylor-kate/static/css/main.f07e3f65.css.map",
-    "main.c7b5b628.js.map": "/taylor-kate/static/js/main.c7b5b628.js.map"
+    "main.css": "./static/css/main.3413c870.css",
+    "main.js": "./static/js/main.1c21b1e1.js",
+    "static/media/galaxynails.jpg": "./static/media/galaxynails.a8fef54ea61f68611437.jpg",
+    "static/media/OdenaGlamour.otf": "./static/media/OdenaGlamour.60981d9f40a33765f621.otf",
+    "static/media/nails5.jpg": "./static/media/nails5.8e9649aed961263de43d.jpg",
+    "static/media/Astrid.otf": "./static/media/Astrid.a2f0f6ad610a55c6407d.otf",
+    "static/media/hero-beauty-spa.jpg": "./static/media/hero-beauty-spa.32027827004ff0bb27cc.jpg",
+    "static/media/nail-service.jpg": "./static/media/nail-service.d85f9e42e1b989b98276.jpg",
+    "static/media/lash-service.jpg": "./static/media/lash-service.8045c354c96e6290f9db.jpg",
+    "static/media/bolddrama.jpg": "./static/media/bolddrama.d234adf23446b86d8345.jpg",
+    "static/media/glamluxe.jpg": "./static/media/glamluxe.bd4cf1f5aa39599ed40f.jpg",
+    "static/media/massage-service.jpg": "./static/media/massage-service.b90cb5d25ca797c0dcba.jpg",
+    "static/media/naturalwhisper.jpg": "./static/media/naturalwhisper.c622d21de80250621e85.jpg",
+    "static/media/bolddrama2.jpg": "./static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
+    "static/media/frenchtips.jpg": "./static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
+    "index.html": "./index.html",
+    "main.3413c870.css.map": "./static/css/main.3413c870.css.map",
+    "main.1c21b1e1.js.map": "./static/js/main.1c21b1e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.f07e3f65.css",
-    "static/js/main.c7b5b628.js"
+    "static/css/main.3413c870.css",
+    "static/js/main.1c21b1e1.js"
   ]
 }
