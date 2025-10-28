@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.3413c870.css",
-    "main.js": "./static/js/main.1c21b1e1.js",
+    "main.css": "./static/css/main.79fc2224.css",
+    "main.js": "./static/js/main.3325078b.js",
     "static/media/galaxynails.jpg": "./static/media/galaxynails.a8fef54ea61f68611437.jpg",
     "static/media/OdenaGlamour.otf": "./static/media/OdenaGlamour.60981d9f40a33765f621.otf",
     "static/media/nails5.jpg": "./static/media/nails5.8e9649aed961263de43d.jpg",
@@ -16,11 +16,11 @@
     "static/media/bolddrama2.jpg": "./static/media/bolddrama2.cef152b1d10b57a4cbc2.jpg",
     "static/media/frenchtips.jpg": "./static/media/frenchtips.221fcbbc4891b04ce12d.jpg",
     "index.html": "./index.html",
-    "main.3413c870.css.map": "./static/css/main.3413c870.css.map",
-    "main.1c21b1e1.js.map": "./static/js/main.1c21b1e1.js.map"
+    "main.79fc2224.css.map": "./static/css/main.79fc2224.css.map",
+    "main.3325078b.js.map": "./static/js/main.3325078b.js.map"
   },
   "entrypoints": [
-    "static/css/main.3413c870.css",
-    "static/js/main.1c21b1e1.js"
+    "static/css/main.79fc2224.css",
+    "static/js/main.3325078b.js"
   ]
 }
